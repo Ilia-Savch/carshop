@@ -1,0 +1,42 @@
+{% extends 'home/layout.html' %}
+
+{% block title %}О Любими матиз{% endblock %}
+
+{% block content %}
+<!--Contact form-->
+<div class="bd-example">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-warning" type="submit">Отправить</button>
+    </form>
+</div>
+
+
+
+<!--<div class="bd-example">-->
+<!--<form>-->
+<!--  <div class="form-group">-->
+<!--    <label for="exampleInputEmail1">Email</label>-->
+<!--    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label>Введите имя</label>-->
+<!--    <input type="text" class="form-control" id=placeholder="FirstName">-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label>Введите Фамилию</label>-->
+<!--    <input type="text" class="form-control" id=placeholder="LastName">-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label>Введите Текст</label>-->
+<!--    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <button type="submit" class="btn btn-dark">Отправить</button>-->
+<!--  </div>-->
+
+<!--</form>-->
+<!--</div>-->
+
+{% endblock %}

@@ -1,0 +1,82 @@
+.center {
+float: left; /*Задаем обтекание*/
+margin-top: 60px;
+width: 1200; /*Фиксируем ширину блока*/
+margin-right: 4%;
+margin-left: 11%
+}
+
+.text-muted {
+   font-size: 10px;
+   margin-left: 4%;
+}
+
+.new {
+    margin-top: 2%;
+    margin-left: 32%;
+    width: 1130px;
+}
+
+.search {
+    margin-left: 11%;
+    margin-right: 11%;
+    margin-top: 3%;
+}
+
+.search2 {
+    margin-left: 11%;
+    margin-right: 11%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+.text-end {
+    margin-right: 4%;
+}
+
+.bd-example {
+    margin-left: 11%;
+    margin-right: 11%;
+    margin-top: 3%;
+}
+
+.form-group{
+    margin-top: 3%;
+}
+
+.login {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 3%;
+    text-align: center;
+}
+
+.athor {
+    margin-top: 2%;
+    text-align: center;
+}
+
+.athor_2 {
+    margin-top: 2%;
+    text-align: center;
+}
+
+.bt {
+margin-left: 10%;
+margin-top: 2%;
+}
+
+.pagin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:33%;
+    margin-left:36%;
+    margin-right:36%;
+    width:100%;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

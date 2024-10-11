@@ -1,0 +1,78 @@
+{% extends 'home/layout.html' %}
+
+{% block title %}{{ matizz.name }}{% endblock %}
+
+
+{% block content %}
+<header class="bg-dark py-5">
+                <div class="container px-5">
+                    <div class="row gx-5 align-items-center justify-content-center">
+                        <div class="col-lg-8 col-xl-7 col-xxl-6">
+                            <div class="my-5 text-center text-xl-start">
+                                <h1 class="display-5 fw-bolder text-white mb-2">{{ matizz.name }}</h1>
+                                <p class="lead fw-normal text-white-50 mb-4">{{ matizz.about }}</p>
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                    <a class="btn btn-warning btn-lg px-4 me-sm-3" href="{% url 'pay' matizz.id %}">Купить прямо сейчас</a>
+                                    <a class="btn btn-outline-light btn-lg px-4" href="{% url 'basket_add' matizz.id %}">Добавить в корзину</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% if matizz.photo %}
+                            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img style="height: 300px; width: 500px; display: block;" class="img-fluid rounded-3 my-5" src="{{ matizz.photo.url}} " alt="..."></div>
+                        {% else %}
+                            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..."></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </header>
+
+<section class="py-5" id="features">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Характеристики:</h2></div>
+                        <div class="col-lg-8">
+                            <div class="row gx-5 row-cols-1 row-cols-md-2">
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                                    <h2 class="h5">Цена</h2>
+                                    <p class="mb-0">{{ matizz.price }} рублей</p>
+                                </div>
+                                <div class="col mb-5 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                                    <h2 class="h5">Год выпуска </h2>
+                                    <p class="mb-0">{{ matizz.date }}</p>
+                                </div>
+                                <div class="col mb-5 mb-md-0 h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                    <h2 class="h5">Пробег</h2>
+                                    <p class="mb-0">{{ matizz.run }}</p>
+                                </div>
+                                <div class="col h-100">
+                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                    <h2 class="h5">Поколение</h2>
+                                    <p class="mb-0">{{ matizz.generation }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<div class="container2">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2021 Company, Inc</p>
+  </footer>
+</div>
+
+{% endblock %}
+
+{% block pagin %}
+{% include 'home/includes/paginator.html' %}
+{% endblock %}

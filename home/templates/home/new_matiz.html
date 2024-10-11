@@ -1,0 +1,85 @@
+{% extends 'home/layout.html' %}
+
+{% block title %}Любими матиз{% endblock %}
+
+{% block content %}
+<form action="{% url 'search_new' %}" method="get">
+    <div class="search">
+        <div class="input-group">
+
+            <input type="search" class="form-control rounded" placeholder="Поиск" aria-label="Search"
+                   aria-describedby="search-addon" name="search_new"/>
+            <button type="submit" class="btn btn-warning" data-mdb-ripple-init>Поиск</button>
+
+        </div>
+    </div>
+</form>
+{% for m in matiz %}
+{% if m.date > 2022 %}
+<div class="new">
+    <div class="col-lg-6">
+        <div class="card mb-4">
+            {% if m.photo %}
+            <a href="{% url 'detail' m.id %}"><img class="card-img-top" height="400" src="{{ m.photo.url }}" alt="..."></a>
+            {% else %}
+            <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..."></a>
+            {% endif %}
+            <div class="card-body">
+                <p class="card-text">{{ m.date }} год выпуска</p>
+                <h2 class="card-title h4">{{ m.name }}</h2>
+                <h3 class="card-title h4">{{ m.price }}-рублей</h3>
+                <p class="card-text">{{ m.about }}</p>
+                <a class="btn btn-warning" href="{% url 'detail' m.id %}">Узнать больше</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endif %}
+{% endfor %}
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{page_obj.previous_page_number}}" style="color: #ff9700;" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+        {% endif %}
+
+        {% for p in paginator.page_range %}
+        {% if p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
+        <li class="page-item"><a style="color: #ff9700;" class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link " style="color: #ff9700;" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+
+
+<div class="container2">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2021 Company, Inc</p>
+  </footer>
+</div>
+
+{% endblock %}
+
+
+

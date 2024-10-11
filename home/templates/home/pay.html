@@ -1,0 +1,15 @@
+{% extends 'home/layout.html' %}
+
+{% block title %}Оплата{% endblock %}
+
+{% block content %}
+<!--Contact form-->
+<div class="bd-example">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-warning" type="submit">Оформить заказ</button>
+    </form>
+</div>
+
+{% endblock %}
